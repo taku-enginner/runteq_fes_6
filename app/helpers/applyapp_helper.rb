@@ -1,0 +1,2 @@
+module ApplyappHelper
+end
