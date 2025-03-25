@@ -1,2 +1,33 @@
-<h1>Applyapp#show</h1>
-<p>Find me in app/views/applyapp/show.html.erb</p>
+<div class="p-10">
+
+  <div class="p-4 bg-white">
+    <div class="text-center text-5xl p-4 m-4">
+      <%= @applyapp.app_title %>
+    </div>
+    <div class="flex items-center justify-center">
+      <%= image_tag "top_image.jpg" ,size: "500x500" %>
+    </div>
+    <div class="text-center p-4 m-4">画像はGoogleドライブから参照する予定。</div>
+    <div class="text-center p-4 m-4"><%= @applyapp.enginner_name%></div>
+    <div class="text-center p-4 m-4"><%= @applyapp.app_description%></div>
+    <div class="text-center p-4 m-4"><%= @applyapp.app_strongpoint%></div>
+    <div class="flex flex-row items-center justify-center">
+      <%= link_to "GitHub",
+                "#{@applyapp.github_url}",
+                class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
+                target: :blank %>
+      <%= link_to "ソーシャルポートフォリオ",
+                "#{@applyapp.spf_url}",
+                class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
+                target: :blank %>
+      <%= link_to "X",
+                "#{@applyapp.x_url}",
+                class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
+                target: :blank %>
+      <%= link_to "サービス",
+                "#{@applyapp.app_url}",
+                class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
+                target: :blank %>
+    </div>
+</div>
+</div>
