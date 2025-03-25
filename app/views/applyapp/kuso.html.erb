@@ -1,0 +1,31 @@
+<% provide(:title, "トップページ | 第6回RUNTEQ祭")%>
+
+<div class="container mx-auto px-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+    <% @kusoapps.each do |app| %>
+      <div class="card bg-base-100 w-96 shadow-sm">
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            alt="Shoes" />
+        </figure>
+        <div class="card-body bg-white flex flex-col space-y-2 p-2">
+          <div class="text-center font-bold p-2">
+            <div>💩💩💩💩💩</div>
+            <h2 class="card-title"><%= app.app_title %></h2>
+          </div>
+          <div class="card-actions justify-end text-center pb-4">
+            <%= link_to "サービス",
+                        "#{app.app_url}",
+                        class:"btn btn-primary border border-gray-500 p-2 rounded",
+                        target: :blank %>
+
+            <%= link_to "詳細ページ",
+                        applyapp_path(app.id),
+                        class:"btn btn-primary border border-gray-500 p-2 rounded" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

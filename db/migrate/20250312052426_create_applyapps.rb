@@ -10,6 +10,7 @@ class CreateApplyapps < ActiveRecord::Migration[7.2]
       t.string :github_url
       t.text :app_description
       t.text :app_strongpoint
+      t.boolean :kuso_app # true or false
 
       t.timestamps
     end

@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_12_052426) do
     t.string "github_url"
     t.text "app_description"
     t.text "app_strongpoint"
+    t.boolean "kuso_app"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -7,6 +7,10 @@ class ApplyappController < ApplicationController
     @applyapp = Applyapp.find(params[:id])
   end
 
+  def kuso
+    @kusoapps = Applyapp.where(kuso_app: true).order(created_at: :asc)
+  end
+
   private
 
   def applyapp_params
