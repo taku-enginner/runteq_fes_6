@@ -11,6 +11,8 @@ class ApplyappController < ApplicationController
     @kusoapps = Applyapp.where(kuso_app: true).order(created_at: :asc)
   end
 
+  def unei;  end
+
   private
 
   def applyapp_params

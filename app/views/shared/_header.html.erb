@@ -25,8 +25,19 @@
     </div>
   </div>
 </div>
-<div class="flex flex-row items-center justify-center bg-blue-500 text-white">
-  <%= link_to "全て", root_path, class: "border p-2 text-2xl w-1/2 text-center" %>
-  <%= link_to "クソアプリ一覧", kuso_path, class: "border p-2 text-2xl w-1/2 text-center" %>
+<div class="flex flex-row items-center justify-center bg-blue-500 text-white border border-white">
+  <div class="text-2xl w-1/2 text-center">
+    <%= link_to root_path do %>
+      <div>全て</div>
+    <% end %>
+  </div>
+  <div class="border text-2xl w-1/2 text-center border border-white">
+    <%= link_to kuso_path do %>
+      <div class="flex flex-row items-center justify-center">
+        <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
+        <div>クソアプリ応募一覧</div>
+      </div>
+    <% end %>
+  </div>
 
 </div>

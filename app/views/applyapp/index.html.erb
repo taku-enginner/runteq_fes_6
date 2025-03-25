@@ -1,7 +1,7 @@
 <% provide(:title, "トップページ | 第6回RUNTEQ祭")%>
 
-<div class="container mx-auto px-4">
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+<div class="flex items-center justify-center">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-4">
     <% @applyapps.each do |app| %>
       <div class="card bg-base-100 w-96 shadow-sm">
         <figure>
@@ -9,10 +9,20 @@
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
             alt="Shoes" />
         </figure>
+
+        
         <div class="card-body bg-white flex flex-col space-y-2 p-2">
-          <div class="text-center font-bold p-2">
-            <h2 class="card-title"><%= app.app_title %></h2>
+          <div class="text-center font-bold">
+            <% if app.kuso_app %>
+              <div class="text-center font-bold p-2 flex flex-row items-center justify-center">
+                <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
+                <h2 class="card-title"><%= app.app_title %></h2>
+              </div>
+            <% else %>
+                <h2 class="card-title py-5"><%= app.app_title %></h2>
+            <% end %>
           </div>
+          
           <div class="card-actions justify-end text-center pb-4">
             <%= link_to "サービス",
                         "#{app.app_url}",
