@@ -3,27 +3,27 @@
   <div class="flex flex-row space-x-4 items-center">
     <%= link_to "アプリ応募はこちら",
                 "https://docs.google.com/forms/d/e/1FAIpQLSeO1CUqvfab4Bm0G0kNrILGT8jSos6xRepqN6-kwbu1Tb2MFQ/viewform?usp=dialog",
-                 class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
+                 class: "border border-white rounded p-3 m-2 bg-blue-500 text-white",
                  target: :blank %>
     
     <!-- 投票開始になったらコメントアウト外す
     <%= link_to "投票フォーム",
                 "https://docs.google.com/forms/d/e/1FAIpQLSenWgyzuPZX6oaQtPZiMW7oQaDxUIyttbRrfYQPUWGM6LhJlQ/viewform?usp=dialog",
-                class: "border border-white rounded p-4 m-4 bg-gray-300 text-white",
+                class: "border border-white rounded p-3 m-2 bg-gray-300 text-white",
                 target: :blank %>
     -->
 
     <!-- 投票開始になったらコメントアウトする -->
-    <div class="border border-white rounded p-4 m-4 bg-gray-300 text-white">投票はこちら</div>
+    <div class="border border-white rounded p-3 m-2 bg-gray-300 text-white">投票はこちら</div>
 
-    <%= link_to "運営メンバー紹介",
+    <%= link_to "運営メンバー",
                 unei_path,
-                class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
+                class: "border border-white rounded p-3 m-2 bg-blue-500 text-white",
                 target: :blank %>
     <div class="flex justify-center bg-blue-200">
       <%= search_form_for @q, url: search_applyapp_index_path do |f| %>
-        <%= f.search_field :enginnername_or_apptitle_or_description_or_strongpoint_cont, class: "border" %>
-        <%= f.submit "検索" %>
+        <%= f.search_field :enginnername_or_apptitle_or_description_or_strongpoint_cont, class: "border border-white rounded bg-white w-64 h-12" %>
+        <%= f.submit "検索" , class: "border border-white text-white bg-blue-500 p-2 rounded-full cursor-pointer" %>
       <% end %>
     </div>
   </div>
