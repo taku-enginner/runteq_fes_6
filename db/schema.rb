@@ -10,21 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_12_052426) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_25_125648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applyapps", force: :cascade do |t|
     t.integer "category"
-    t.string "enginner_name"
-    t.string "spf_url"
+    t.string "enginnername"
+    t.string "spfurl"
+    t.string "xurl"
+    t.string "apptitle"
+    t.string "appurl"
+    t.string "githuburl"
+    t.text "description"
+    t.text "strongpoint"
+    t.boolean "kuso"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "unei", force: :cascade do |t|
+    t.integer "period"
+    t.string "name"
     t.string "x_url"
-    t.string "app_title"
-    t.string "app_url"
-    t.string "github_url"
-    t.text "app_description"
-    t.text "app_strongpoint"
-    t.boolean "kuso_app"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

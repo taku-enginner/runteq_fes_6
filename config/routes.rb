@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :applyapp, only: %i(index show)
+  resources :applyapp do
+    collection do
+      get "search"
+    end
+  end
   get "kuso" => "applyapp#kuso"
   get "unei" => "applyapp#unei"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

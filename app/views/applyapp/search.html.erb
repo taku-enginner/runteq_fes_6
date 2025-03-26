@@ -1,8 +1,7 @@
-<% provide(:title, "トップページ | 第6回RUNTEQ祭")%>
-
+<div class="text-center p-4 text-5xl font-light">検索結果</div>
 <div class="flex items-center justify-center">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-4">
-    <% @applyapps.each do |app| %>
+    <% @results.each do |app| %>
       <div class="card bg-base-100 w-96 shadow-sm border shadow-md">
         <div class="flex items-center justify-center bg-white">
           <%= image_tag "top_image.jpg", size: "300x300" %>

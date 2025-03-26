@@ -1,36 +1,48 @@
+<% provide(:title, "#{@applyapp.apptitle} | 第6回RUNTEQ祭")%>
 <div class="p-10 flex justify-center">
 
-  <div class="p-4 bg-white w-1/2 flex justify-center">
+  <div class="p-4 bg-green-100 w-1/2 flex justify-center border">
     <div class="w-2/3">
-      <div class="text-center text-5xl p-4 m-4">
-        <%= @applyapp.app_title %>
+      <div class="font-bebas font-bold text-center text-5xl p-4 m-4">
+        <%= @applyapp.apptitle %>
       </div>
       <div class="flex items-center justify-center">
         <%= image_tag "top_image.jpg" ,size: "500x500" %>
       </div>
-      <% if @applyapp.kuso_app %>
-        <div class="flex justify-center p-4">✨💩クソアプリ💩✨</div>
+      <% if @applyapp.kuso %>
+        <div class="text-center font-bold p-1 flex flex-row items-center justify-center">
+          <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
+          <h2 class="text-2xl font-light"><%= @applyapp.apptitle %></h2>
+        </div>
       <% end %>
-      <div class="text-center p-4 m-4 border border-black"><%= @applyapp.enginner_name%></div>
-      <div class="text-center p-4 m-4 border border-black"><%= @applyapp.app_description%></div>
-      <div class="text-center p-4 m-4 border border-black"><%= @applyapp.app_strongpoint%></div>
-      <div class="flex flex-row items-center justify-center">
-        <%= link_to "GitHub",
-                  "#{@applyapp.github_url}",
-                  class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
-                  target: :blank %>
-        <%= link_to "ソーシャルポートフォリオ",
-                  "#{@applyapp.spf_url}",
-                  class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
-                  target: :blank %>
-        <%= link_to "X",
-                  "#{@applyapp.x_url}",
-                  class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
-                  target: :blank %>
-        <%= link_to "サービス",
-                  "#{@applyapp.app_url}",
-                  class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
-                  target: :blank %>
+      <div class="font-bebas text-center pt-4"><%= @applyapp.enginnername%></div>
+      <div class="font-bebas text-center p-4 m-4"><%= @applyapp.description%></div>
+      <div class="font-bebas text-center p-4 m-4"><%= @applyapp.strongpoint%></div>
+      <div class="font-bebas flex flex-row items-center justify-center space-x-4">
+        <%= link_to "#{@applyapp.githuburl}",
+                    data: {toggle: "tooltip", placement: "bottom"},
+                    class: "text-4xl",
+                    target: "_black" do %>
+          <i class="fa-brands fa-github"></i>
+        <% end %>
+        <%= link_to "#{@applyapp.spfurl}",
+                    data: {toggle: "tooltip", placement: "bottom"},
+                    class: "text-4xl",
+                    target: "_black" do %>
+          <i class="fa-solid fa-registered"></i>
+        <% end %>
+        <%= link_to "#{@applyapp.xurl}",
+                    data: {toggle: "tooltip", placement: "bottom"},
+                    class: "text-4xl",
+                    target: "_black" do %>
+          <i class="fa-brands fa-square-x-twitter"></i>
+        <% end %>
+        <%= link_to "#{@applyapp.appurl}",
+                    data: {toggle: "tooltip", placement: "bottom"},
+                    class: "text-4xl",
+                    target: "_black" do %>
+          <i class="fa-solid fa-globe"></i>
+        <% end %>
       </div>
     </div>
   </div>

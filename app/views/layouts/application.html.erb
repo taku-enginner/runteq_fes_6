@@ -17,9 +17,11 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <script src="https://kit.fontawesome.com/58f012fe42.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=M+PLUS+Rounded+1c&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   </head>
 
-  <body class="bg-[url('/RunteqFes/top_image.jpg')] min-h-screen relative">
+  <body class="bg-[url('/RunteqFes/top_image.jpg')] min-h-screen relative font-bebas">
     <div class="absolute inset-0 bg-white opacity-80 h-full"></div>
     <div class="relative z-10">
       <%= render "shared/header" %>

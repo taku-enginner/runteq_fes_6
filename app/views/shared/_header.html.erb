@@ -1,5 +1,5 @@
-<div class="bg-blue-200 flex flex-row justify-between space-x-4 p-2">
-  <%= link_to "第6回RUNTEQ祭 応募一覧アプリ", root_path, class:"text-5xl font-bold p-4" %>
+<div class="bg-blue-200 flex flex-row justify-between items-center space-x-4 p-2">
+  <%= link_to "第6回RUNTEQ祭 応募一覧アプリ", root_path, class:"font-bebas text-5xl font-bold p-4"%>
   <div class="flex flex-row space-x-4 items-center">
     <%= link_to "アプリ応募はこちら",
                 "https://docs.google.com/forms/d/e/1FAIpQLSeO1CUqvfab4Bm0G0kNrILGT8jSos6xRepqN6-kwbu1Tb2MFQ/viewform?usp=dialog",
@@ -17,11 +17,14 @@
     <div class="border border-white rounded p-4 m-4 bg-gray-300 text-white">投票はこちら</div>
 
     <%= link_to "運営メンバー紹介",
-                "https://docs.google.com/forms/d/e/1FAIpQLSenWgyzuPZX6oaQtPZiMW7oQaDxUIyttbRrfYQPUWGM6LhJlQ/viewform?usp=dialog",
+                unei_path,
                 class: "border border-white rounded p-4 m-4 bg-blue-500 text-white",
                 target: :blank %>
     <div class="flex justify-center bg-blue-200">
-      <div class="border border-white p-4 m-4 rounded">アプリ検索窓</div>
+      <%= search_form_for @q, url: search_applyapp_index_path do |f| %>
+        <%= f.search_field :enginnername_or_apptitle_or_description_or_strongpoint_cont, class: "border" %>
+        <%= f.submit "検索" %>
+      <% end %>
     </div>
   </div>
 </div>
