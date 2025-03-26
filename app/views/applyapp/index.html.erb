@@ -3,21 +3,28 @@
 <div class="flex items-center justify-center">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-4">
     <% @applyapps.each do |app| %>
-      <div class="card bg-base-100 w-full max-w-sm shadow-sm border shadow-md min-h-[400px] flex flex-col">
+      <div class="card bg-base-100 w-full max-w-sm shadow-sm shadow-md flex flex-col">
         <div class="flex items-center justify-center bg-white">
-          <%= image_tag "top_image.jpg", class: "hidden md:block w-full h-auto max-w-xs md:max-w-sm" %>
-          <%= image_tag "top_image.jpg", class: "md:hidden w-full h-auto max-w-xs" %>
+          <% if app.app_image.length >= 1 %>
+            <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 w-full object-cover" %>
+          <% else %>
+            <%= image_tag "top_image.jpg", class: "h-48 w-full object-cover" %>
+          <% end %>
         </div>
        
-        <div class="card-body bg-green-200 flex flex-col space-y-2 p-3 h-full">
+        <div class="card-body bg-green-200 flex flex-col space-y-2 p-2">
           <div class="text-center font-bold">
             <% if app.kuso %>
-              <div class="text-center font-bold p-1 flex flex-row items-center justify-center">
+              <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
                 <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
-                <h2 class="font-bebas text-2xl font-light"><%= app.apptitle %></h2>
+                <h2 class="font-bebas md:text-lg font-light pb-3">No.<%= app.id %>&nbsp;&nbsp;&nbsp;<%= app.apptitle %></h2>
+                <div class="font-light w-2/3"><%= app.description %></div>
               </div>
             <% else %>
-                <h2 class="font-bebas text-2xl font-light py-3"><%= app.apptitle %></h2>
+              <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
+                <h2 class="font-bebas md:text-lg font-light pt-7 pb-8">No.<%= app.id %>&nbsp;&nbsp;&nbsp;<%= app.apptitle %></h2>
+                <div class="font-light w-2/3"><%= app.description %></div>
+              </div>
             <% end %>
           </div>
           

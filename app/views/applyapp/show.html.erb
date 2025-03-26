@@ -1,47 +1,65 @@
 <% provide(:title, "#{@applyapp.apptitle} | 第6回RUNTEQ祭")%>
 <div class="p-10 flex justify-center">
 
-  <div class="p-4 bg-green-100 w-1/2 flex justify-center border">
-    <div class="w-2/3">
-      <div class="font-bebas font-bold text-center text-5xl p-4 m-4">
-        <%= @applyapp.apptitle %>
+  <div class="p-4 bg-green-100 md:w-1/2 flex justify-center">
+    <div class="md:w-2/3">
+      <div class="font-bebas font-bold text-center text-2xl md:text-5xl md:p-4 m-4">
+        No.<%= @applyapp.id %>&nbsp;&nbsp;&nbsp;<%= @applyapp.apptitle %>
       </div>
-      <div class="flex items-center justify-center">
-        <%= image_tag "top_image.jpg" ,size: "500x500" %>
+
+      <div class="flex items-center justify-center bg-white">
+          <% if @applyapp.app_image.length >= 1 %>
+            <%= image_tag image_url(@applyapp.app_image), alt: "Google Drive Image", class: "h-48 w-full object-cover" %>
+          <% else %>
+            <%= image_tag "top_image.jpg", class: "h-48 w-full object-cover" %>
+          <% end %>
       </div>
       <% if @applyapp.kuso %>
-        <div class="text-center font-bold p-1 flex flex-row items-center justify-center">
+        <div class="text-center font-bold p-1 flex flex-col md:flex-row items-center justify-center">
           <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
-          <h2 class="text-2xl font-light"><%= @applyapp.apptitle %></h2>
+          <h2 class="text-xl md:text-2xl font-light">No.<%= @applyapp.id %>&nbsp;&nbsp;&nbsp;<%= @applyapp.apptitle %></h2>
         </div>
       <% end %>
-      <div class="font-bebas text-center pt-4"><%= @applyapp.enginnername%></div>
-      <div class="font-bebas text-center p-4 m-4"><%= @applyapp.description%></div>
-      <div class="font-bebas text-center p-4 m-4"><%= @applyapp.strongpoint%></div>
-      <div class="font-bebas flex flex-row items-center justify-center space-x-4">
+
+
+      <div class="font-bebas text-center p-2"><%= @applyapp.description%></div>
+      <div class="font-bebas text-center p-2"><%= @applyapp.strongpoint%></div>
+      <div class="font-bebas flex flex-row items-center justify-center space-x-4 pt-3">
+        <%= link_to "#{@applyapp.appurl}",
+                    data: {toggle: "tooltip", placement: "bottom"},
+                    class: "text-4xl",
+                    target: "_black" do %>
+          <i class="fa-solid fa-globe"></i>
+        <% end %>
         <%= link_to "#{@applyapp.githuburl}",
                     data: {toggle: "tooltip", placement: "bottom"},
                     class: "text-4xl",
                     target: "_black" do %>
           <i class="fa-brands fa-github"></i>
         <% end %>
-        <%= link_to "#{@applyapp.spfurl}",
+      </div>
+      <!-- 開発者情報 -->
+      <div class="text-center pt-5 text-3xl">開発者</div>
+      <div class="font-bebas text-center pt-2 flex flex-col items-center ">
+        <% enginner_array = @applyapp.enginnername.split(",") %>
+        <% x_array = @applyapp.xurl.split(",") %>
+        <% spf_array = @applyapp.spfurl.split(",") %>
+        <% enginner_array.length.times do |i| %>
+          <div class="flex flex-row space-x-2 items-center justify-center">
+            <div class="border border-white bg-blue-500 text-white py-2 px-2 rounded"><%= enginner_array[i] %> さん</div>
+            <%= link_to "#{x_array[i]}",
+                        data: {toggle: "tooltip", placement: "bottom"},
+                        class: "text-4xl",
+                        target: "_black" do %>
+              <i class="fa-brands fa-square-x-twitter"></i>
+            <% end %>
+            <%= link_to "#{spf_array[i]}",
                     data: {toggle: "tooltip", placement: "bottom"},
                     class: "text-4xl",
                     target: "_black" do %>
-          <i class="fa-solid fa-registered"></i>
-        <% end %>
-        <%= link_to "#{@applyapp.xurl}",
-                    data: {toggle: "tooltip", placement: "bottom"},
-                    class: "text-4xl",
-                    target: "_black" do %>
-          <i class="fa-brands fa-square-x-twitter"></i>
-        <% end %>
-        <%= link_to "#{@applyapp.appurl}",
-                    data: {toggle: "tooltip", placement: "bottom"},
-                    class: "text-4xl",
-                    target: "_black" do %>
-          <i class="fa-solid fa-globe"></i>
+              <i class="fa-solid fa-registered"></i>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>

@@ -11,6 +11,7 @@ class CreateApplyapps < ActiveRecord::Migration[7.2]
       t.text :description, null: false
       t.text :strongpoint, null: false
       t.boolean :kuso ,default: false # true or false
+      t.string :app_image
 
       t.timestamps
     end

@@ -12,20 +12,27 @@
 
 
 50.times do |n|
-  apptitle = "app_#{n + 1}"
+  apptitle = "app_#{Faker::Name.name}_#{n + 1}"
 
   # 個人開発
   Applyapp.find_or_create_by(apptitle: apptitle) do |app|
     app.category = 1
-    app.enginnername = "60期 たか"
+    app.enginnername = Faker::Name.name
     app.spfurl = "https://school.runteq.jp/social_portfolios/taka_haikyu"
     app.xurl = "https://x.com/taka_RUNTEQ_60a"
     app.apptitle = apptitle
     app.appurl = "https://pikawaka.com/rails/image_tag"
     app.githuburl = "https://github.com/taku-enginner/utamemo"
-    app.description = "個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです"
+    app.description = "個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発アプリです個人開発ア"
     app.strongpoint = "●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました"
     n.odd? ? app.kuso = true : app.kuso = false
+    if n%3 == 0
+      app.app_image = "https://drive.google.com/open?id=1cssk5l64xLiYXyNrqUjq88WioLhknmE9"
+    elsif n%3 == 1
+      app.app_image = "https://drive.google.com/open?id=1uqGtt7owkXi5Kh2KN3Q2OgJ3vfawKud7"
+    else
+      app.app_image = ""
+    end
   end
 end
 
@@ -40,8 +47,15 @@ end
     app.apptitle = apptitle
     app.appurl = "https://pikawaka.com/rails/image_tag"
     app.githuburl = "https://github.com/taku-enginner/utamemo"
-    app.description = "チーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリです"
+    app.description = "チーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリですチーム開発アプリです"
     app.strongpoint = "●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました●●を特に頑張りました"
     n.odd? ? app.kuso = true : app.kuso = false
+    if n%3 == 0
+      app.app_image = "https://drive.google.com/open?id=1cssk5l64xLiYXyNrqUjq88WioLhknmE9"
+    elsif n%3 == 1
+      app.app_image = "https://drive.google.com/open?id=1uqGtt7owkXi5Kh2KN3Q2OgJ3vfawKud7"
+    else
+      app.app_image = ""
+    end
   end
 end
