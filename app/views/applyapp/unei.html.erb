@@ -6,7 +6,7 @@
     <ul class="flex flex-col">
       <% 8.times do |i| %>
         <li class="text-2xl p-3 flex flex-row items-center space-x-3">
-          <%= image_tag "unei/rfes_member#{i+1}", size: "50x50" %>
+          <%= image_tag "unei/rfes_member#{i+1}.png", size: "50x50" %>
           <%= Rails.application.credentials.unei["member#{i+1}"][:period] %>期
           <%= Rails.application.credentials.unei["member#{i+1}"][:name] %>
           <%= link_to "#{Rails.application.credentials.unei["member#{i+1}"][:x_url]}",
