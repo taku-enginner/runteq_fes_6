@@ -3,9 +3,12 @@
   <div class="flex items-center justify-center">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-4">
       <% @results.each do |app| %>
-        <div class="card bg-base-100 w-96 shadow-sm border shadow-md">
+        <div class="card bg-base-100 w-70 md:w-96 shadow-sm border shadow-md">
           <div class="flex items-center justify-center bg-white">
-            <%= image_tag "top_image.jpg", size: "300x300" %>
+            <div class="flex items-center justify-center bg-white">
+              <%= image_tag "top_image.jpg", size: "300x300" , class: "hidden md:block" %>
+              <%= image_tag "top_image.jpg", size: "200x200" , class: "md:hidden" %>
+            </div>
           </div>
         
           <div class="card-body bg-green-200 flex flex-col space-y-2 p-1">

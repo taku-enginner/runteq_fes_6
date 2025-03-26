@@ -3,12 +3,13 @@
 <div class="flex items-center justify-center">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-4">
     <% @applyapps.each do |app| %>
-      <div class="card bg-base-100 w-96 shadow-sm border shadow-md">
+      <div class="card bg-base-100 w-full max-w-sm shadow-sm border shadow-md min-h-[400px] flex flex-col">
         <div class="flex items-center justify-center bg-white">
-          <%= image_tag "top_image.jpg", size: "300x300" %>
+          <%= image_tag "top_image.jpg", class: "hidden md:block w-full h-auto max-w-xs md:max-w-sm" %>
+          <%= image_tag "top_image.jpg", class: "md:hidden w-full h-auto max-w-xs" %>
         </div>
        
-        <div class="card-body bg-green-200 flex flex-col space-y-2 p-1">
+        <div class="card-body bg-green-200 flex flex-col space-y-2 p-3 h-full">
           <div class="text-center font-bold">
             <% if app.kuso %>
               <div class="text-center font-bold p-1 flex flex-row items-center justify-center">

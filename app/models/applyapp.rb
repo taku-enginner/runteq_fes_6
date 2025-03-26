@@ -1,4 +1,7 @@
 class Applyapp < ApplicationRecord
+
+  validates :apptitle, uniqueness: true
+
   # Ransack で検索可能なカラムを明示的に指定
   def self.ransackable_attributes(auth_object = nil)
     ["enginnername", "apptitle", "description", "strongpoint"]
