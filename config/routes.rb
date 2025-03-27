@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "top/index"
+  get "infomation/index"
   resources :applyapp do
     collection do
       get "search"
@@ -17,5 +19,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "applyapp#index"
+  root "top#index"
 end

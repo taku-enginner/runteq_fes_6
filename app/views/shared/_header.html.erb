@@ -1,12 +1,12 @@
 <div class="bg-blue-200 flex flex-wrap items-center justify-between px-4 py-1 relative">
   <div class="flex items-center space-x-4">
     <!-- スマホ用の短縮タイトル -->
-    <%= link_to root_path, class:"text-2xl font-bebas font-bold md:hidden" do %>
+    <%= link_to applyapp_index_path, class:"text-2xl font-bebas font-bold md:hidden" do %>
       <div>第6回RUNTEQ祭アプリ</div>
     <% end %>
 
     <!-- PC用の長いタイトル -->
-    <%= link_to "第6回RUNTEQ祭 応募一覧アプリ", root_path, class:"hidden text-2xl font-bebas md:text-5xl font-bold md:block"%>
+    <%= link_to "第6回RUNTEQ祭 応募一覧アプリ", applyapp_index_path, class:"hidden text-2xl font-bebas md:text-5xl font-bold md:block"%>
   </div>
 
   <!-- ハンバーガーメニューのボタン -->
@@ -51,7 +51,7 @@
 <!-- カテゴリメニュー -->
 <div class="flex flex-row items-center justify-center bg-blue-500 text-white">
   <div class="md:text-2xl w-1/2 text-center py-1 border border-white md:py-3">
-    <%= link_to root_path do %>
+    <%= link_to applyapp_index_path do %>
       <div>全て</div>
     <% end %>
   </div>
