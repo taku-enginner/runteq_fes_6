@@ -44,9 +44,9 @@
       <!-- 開発者情報 -->
       <div class="text-center pt-5 text-3xl">開発者</div>
       <div class="font-bebas text-center pt-2 flex flex-col items-center ">
-        <% enginner_array = @applyapp.enginnername.split(",") %>
-        <% x_array = @applyapp.xurl.split(",") %>
-        <% spf_array = @applyapp.spfurl.split(",") %>
+        <% enginner_array = @applyapp.enginnername.split("**********") %>
+        <% x_array = @applyapp.xurl.split("**********") %>
+        <% spf_array = @applyapp.spfurl.split("**********") %>
         <% enginner_array.length.times do |i| %>
           <div class="flex flex-row space-x-2 items-center justify-center">
             <div class="border border-white bg-blue-500 text-white py-2 px-2 rounded"><%= enginner_array[i] %> さん</div>
