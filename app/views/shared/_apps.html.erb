@@ -15,12 +15,12 @@
             <% if app.kuso %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
                 <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
-                <h2 class="font-bebas md:text-lg font-light pb-3">No.<%= app.id %>&nbsp;&nbsp;&nbsp;<%= app.apptitle %></h2>
+                <h2 class="font-bebas md:text-lg font-light pb-3"><%= app.apptitle %></h2>
                 <div class="font-light w-2/3"><%= app.description %></div>
               </div>
             <% else %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
-                <h2 class="font-bebas md:text-lg font-light pt-7 pb-8">No.<%= app.id %>&nbsp;&nbsp;&nbsp;<%= app.apptitle %></h2>
+                <h2 class="font-bebas md:text-lg font-light pt-7 pb-8"><%= app.apptitle %></h2>
                 <div class="font-light w-2/3"><%= app.description %></div>
               </div>
             <% end %>

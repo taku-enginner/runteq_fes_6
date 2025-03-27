@@ -4,7 +4,7 @@
   <div class="p-4 bg-green-100 md:w-1/2 flex justify-center">
     <div class="md:w-2/3">
       <div class="font-bebas font-bold text-center text-2xl md:text-5xl md:p-4 m-4">
-        No.<%= @applyapp.id %>&nbsp;&nbsp;&nbsp;<%= @applyapp.apptitle %>
+       <%= @applyapp.apptitle %>
       </div>
 
       <div class="flex items-center justify-center bg-white">
@@ -17,11 +17,11 @@
       <% if @applyapp.kuso %>
         <div class="text-center font-bold p-1 flex flex-col md:flex-row items-center justify-center">
           <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
-          <h2 class="text-xl md:text-2xl font-light">No.<%= @applyapp.id %>&nbsp;&nbsp;&nbsp;<%= @applyapp.apptitle %></h2>
+          <h2 class="text-xl md:text-2xl font-light"><%= @applyapp.apptitle %></h2>
         </div>
       <% end %>
       <div class="text-center font-bold p-1 flex flex-col md:flex-row items-center justify-center">
-        <h2 class="text-xl md:text-2xl font-light">No.<%= @applyapp.id %>&nbsp;&nbsp;&nbsp;<%= @applyapp.apptitle %></h2>
+        <h2 class="text-xl md:text-2xl font-light"><%= @applyapp.apptitle %></h2>
       </div>
       <div class="font-bebas flex flex-row items-center justify-center space-x-4 pt-3">
         <%= link_to "#{@applyapp.appurl}",
