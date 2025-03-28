@@ -4,9 +4,9 @@
       <div class="card bg-base-100 w-full max-w-sm shadow-sm shadow-md flex flex-col">
         <div class="flex items-center justify-center bg-white">
           <% if app.app_image.length >= 1 %>
-            <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 w-full object-cover" %>
+            <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 md:h-60 w-full object-cover" %>
           <% else %>
-            <%= image_tag "top_image.jpg", class: "h-48 w-full object-cover" %>
+            <%= image_tag "top_image.jpg", class: "h-48 md:h-60 w-full object-cover" %>
           <% end %>
         </div>
        
@@ -26,18 +26,9 @@
             <% end %>
           </div>
           
-          <div class="flex flex-row space-x-4 justify-center pb-3">
-            <%= link_to applyapp_path(app.id),
-                        data: {toggle: "tooltip", placement: "bottom"},
-                        class: "text-4xl" do %>
-              <i class="fa-solid fa-circle-info"></i>
-            <% end %>
-            <%= link_to "#{app.appurl}",
-                        data: {toggle: "tooltip", placement: "bottom"},
-                        class: "text-4xl",
-                        target: "_black" do %>
-              <i class="fa-solid fa-globe"></i>
-            <% end %>
+          <div class="flex flex-row space-x-4 items-center justify-center pb-3">
+            <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-lg p-1 border rounded items-center" %>
+            <%= link_to "サービス", "#{app.appurl}", class: "bg-white border-2 text-lg p-1 border rounded items-center" %>
           </div>
         </div>
       </div>
