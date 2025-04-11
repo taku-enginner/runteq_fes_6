@@ -30,6 +30,9 @@
               </div>
             <% end %>
           </div>
+
+          <div class="text-center p-2">開発者：<%= app.enginnername%></div>
+          <div><%= app.created_at %></div>
           
           <div class="flex flex-row space-x-4 items-center justify-center pb-3">
             <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-lg p-1 border rounded items-center" %>
