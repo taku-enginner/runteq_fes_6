@@ -15,7 +15,7 @@
             <% if app.kuso %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
                 <div class="flex flex-row items-center justify-center">
-                  <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 7.days) %>
+                  <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
                   <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
                 </div>
                 <h2 class="font-bebas text-2xl font-light pb-3"><%= app.apptitle %></h2>
@@ -30,6 +30,8 @@
               </div>
             <% end %>
           </div>
+
+          <div class="text-center p-2">開発者：<%= app.enginnername%></div>
           
           <div class="flex flex-row space-x-4 items-center justify-center pb-3">
             <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-lg p-1 border rounded items-center" %>

@@ -10,7 +10,7 @@ class CreateApplyapps < ActiveRecord::Migration[7.2]
       t.string :githuburl, null: false
       t.text :description, null: false
       t.text :strongpoint, null: false
-      t.boolean :kuso ,default: false # true or false
+      t.boolean :kuso, default: false # true or false
       t.string :app_image
 
       t.timestamps
