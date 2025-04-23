@@ -1,7 +1,8 @@
 <div class="flex items-center justify-center">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-4">
     <% @applyapps.each do |app| %>
-      <div class="card bg-base-100 w-full max-w-sm shadow-sm shadow-md flex flex-col h-full">
+      <div class="card bg-base-100 w-full max-w-sm shadow-sm shadow-md flex flex-col h-full transform transition hover:scale-105 hover:shadow-lg duration-300 rounded-xl overflow-hidden">
+        <!-- 画像 -->
         <div class="flex items-center justify-center bg-white">
           <% if app.app_image.length >= 1 %>
             <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 md:h-60 w-full object-cover" %>
@@ -10,23 +11,22 @@
           <% end %>
         </div>
 
-        <div class="card-body bg-green-200 flex flex-col p-2 h-[340px]"> <!-- 高さ指定で統一 -->
+        <!-- 本文 -->
+        <div class="card-body bg-green-200 flex flex-col p-2 h-[340px] justify-between">
           <div class="text-center font-bold">
-            <!-- クソアプリバッジありの場合-->
             <% if app.kuso %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
                 <div class="flex flex-row items-center justify-center space-x-2">
                   <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
                   <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
-                  <h2 class="font-bebas text-2xl font-light"><%= app.apptitle %></h2>
+                  <h2 class="font-bebas text-2xl font-light hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
                 </div>
                 <div class="font-light text-sm overflow-hidden line-clamp-3 px-2 h-[180px]"><%= app.description %></div>
               </div>
-            <!-- クソアプリバッジなしの場合-->
             <% else %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
                 <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
-                <h2 class="font-bebas text-2xl font-light py-2"><%= app.apptitle %></h2>
+                <h2 class="font-bebas text-2xl font-light py-2 hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
                 <div class="font-light text-sm overflow-hidden line-clamp-3 px-2 h-[180px]"><%= app.description %></div>
               </div>
             <% end %>
@@ -35,8 +35,8 @@
           <div class="text-center p-2 text-sm">開発者：<%= app.enginnername %></div>
 
           <div class="flex flex-row space-x-4 items-center justify-center">
-            <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-sm px-3 py-1 border rounded" %>
-            <%= link_to "サービス", "#{app.appurl}", class: "bg-white border-2 text-sm px-3 py-1 border rounded" %>
+            <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-sm px-3 py-1 border rounded hover:bg-blue-100 hover:text-blue-600 transition" %>
+            <%= link_to "サービス", "#{app.appurl}", class: "bg-white border-2 text-sm px-3 py-1 border rounded hover:bg-blue-100 hover:text-blue-600 transition" %>
           </div>
         </div>
       </div>
