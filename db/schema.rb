@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_25_125648) do
+ActiveRecord::Schema[7.2].define(version: 2025_04_27_040713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applyapps", force: :cascade do |t|
     t.integer "category", null: false
     t.string "enginnername", null: false
-    t.string "spfurl", default: ""
-    t.string "xurl", default: ""
+    t.string "spfurl"
+    t.string "xurl"
     t.string "apptitle", null: false
     t.string "appurl", null: false
-    t.string "githuburl", null: false
+    t.string "githuburl"
     t.text "description", null: false
     t.text "strongpoint", null: false
     t.boolean "kuso", default: false
