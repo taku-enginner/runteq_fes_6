@@ -15,7 +15,7 @@
 
     <!-- 画像 -->
     <div class="flex items-center justify-center bg-white rounded-lg overflow-hidden mb-6 shadow">
-      <% if @applyapp.app_image.length >= 1 %>
+      <% if !!@applyapp.app_image %>
         <%= image_tag image_url(@applyapp.app_image),
                       alt: "アプリ画像",
                       class: "w-full h-48 md:h-auto object-cover md:object-contain" %>
@@ -30,8 +30,10 @@
       <%= link_to "サービス", "#{@applyapp.appurl}",
                   class: "bg-white border-2 text-lg px-4 py-2 border rounded hover:bg-blue-50 transition duration-200 font-semibold" %>
 
-      <%= link_to "#{@applyapp.githuburl}", target: "_blank", class: "text-4xl hover:scale-110 transition duration-200" do %>
-        <i class="fa-brands fa-github"></i>
+      <% if !!@applyapp.githuburl %>
+        <%= link_to "#{@applyapp.githuburl}", target: "_blank", class: "text-4xl hover:scale-110 transition duration-200" do %>
+          <i class="fa-brands fa-github"></i>
+        <% end %>
       <% end %>
     </div>
 
@@ -53,11 +55,15 @@
           <div class="bg-blue-500 text-white px-3 py-1 rounded font-semibold">
             <%= enginner_array[i] %> さん
           </div>
-          <%= link_to "#{x_array[i]}", target: "_blank", class: "text-3xl hover:text-blue-400 transition" do %>
-            <i class="fa-brands fa-square-x-twitter"></i>
+          <% if !!x_array[i] %>
+            <%= link_to "#{x_array[i]}", target: "_blank", class: "text-3xl hover:text-blue-400 transition" do %>
+              <i class="fa-brands fa-square-x-twitter"></i>
+            <% end %>
           <% end %>
-          <%= link_to "#{spf_array[i]}", target: "_blank", class: "text-3xl hover:text-blue-400 transition" do %>
-            <i class="fa-solid fa-registered"></i>
+          <% if !!spf_array[i] %>
+            <%= link_to "#{spf_array[i]}", target: "_blank", class: "text-3xl hover:text-blue-400 transition" do %>
+              <i class="fa-solid fa-registered"></i>
+            <% end %>
           <% end %>
         </div>
       <% end %>
