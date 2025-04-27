@@ -4,7 +4,7 @@
       <div class="card bg-base-100 w-full max-w-sm shadow-sm shadow-md flex flex-col h-full transform transition hover:scale-105 hover:shadow-lg duration-300 rounded-xl overflow-hidden">
         <!-- 画像 -->
         <div class="flex items-center justify-center bg-white">
-          <% if app.app_image.length >= 1 %>
+          <% if !!app.app_image %>
             <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 md:h-60 w-full object-cover" %>
           <% else %>
             <%= image_tag "top_image.jpg", class: "h-48 md:h-60 w-full object-cover" %>
@@ -25,8 +25,10 @@
               </div>
             <% else %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
-                <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
-                <h2 class="font-bebas text-2xl font-light py-2 hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
+                <div class="flex flex-row items-center justify-center space-x-2">
+                  <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
+                  <h2 class="font-bebas text-2xl font-light py-2 hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
+                </div>
                 <div class="font-light text-sm overflow-hidden line-clamp-3 px-2 h-[180px]"><%= app.description %></div>
               </div>
             <% end %>
