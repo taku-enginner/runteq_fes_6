@@ -4,7 +4,7 @@
       <div class="card bg-base-100 w-full max-w-sm shadow-sm shadow-md flex flex-col h-full transform transition hover:scale-105 hover:shadow-lg duration-300 rounded-xl overflow-hidden">
         <!-- 画像 -->
         <div class="flex items-center justify-center bg-white">
-          <% if app.app_image.size==0 %>
+          <% if !!app.app_image %>
             <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 md:h-60 w-full object-cover" %>
           <% else %>
             <%= image_tag "top_image.jpg", class: "h-48 md:h-60 w-full object-cover" %>

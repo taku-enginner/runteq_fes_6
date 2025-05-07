@@ -15,7 +15,7 @@
 
     <!-- 画像 -->
     <div class="flex items-center justify-center bg-white rounded-lg overflow-hidden mb-6 shadow">
-      <% if @applyapp.app_image.size==0 %>
+      <% if !!@applyapp.app_image %>
         <%= image_tag image_url(@applyapp.app_image),
                       alt: "アプリ画像",
                       class: "w-full h-48 md:h-auto object-cover md:object-contain" %>
