@@ -47,7 +47,7 @@
     <div class="text-center text-2xl font-bold mb-4">開発者</div>
     <div class="flex flex-col items-center space-y-3">
       <% enginner_array = @applyapp.enginnername.split("**********") %>
-      <% enginner_array = raidoku_team if enginner_array == "来読-ReadMap-制作委員会" %>
+      <% enginner_array = raidoku_team if enginner_array[0] == "来読-ReadMap-制作委員会" %>
       <% x_array = @applyapp.xurl.split("**********") %>
       <% spf_array = @applyapp.spfurl.split("**********") %>
 
