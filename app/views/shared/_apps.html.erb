@@ -17,22 +17,12 @@
         <!-- 本文 -->
         <div class="card-body bg-green-200 flex flex-col p-2 h-[300px] justify-between">
           <div class="text-center font-bold">
-            <% if app.kuso %>
-              <div class="text-center font-bold p-1 flex flex-col items-center justify-center max-h-[230px]">
-                <div class="flex flex-row items-center justify-center space-x-2">
-                  <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
-                  <h2 class="font-bebas text-2xl font-light hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
-                </div>
-                <div class="font-light text-sm overflow-hidden line-clamp-3 px-2"><%= app.description %></div>
+            <div class="text-center font-bold p-1 flex flex-col items-center justify-center max-h-[230px]">
+              <div class="flex flex-row items-center justify-center space-x-2">
+                <h2 class="font-bebas text-2xl font-light hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
               </div>
-            <% else %>
-              <div class="text-center font-bold p-1 flex flex-col items-center justify-center max-h-[230px]">
-                <div class="flex flex-row items-center justify-center space-x-2">
-                  <h2 class="font-bebas text-2xl font-light py-2 hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
-                </div>
-                <div class="font-light text-sm overflow-hidden line-clamp-3 px-2"><%= app.description %></div>
-              </div>
-            <% end %>
+              <div class="font-light text-sm overflow-hidden line-clamp-3 px-2"><%= app.description %></div>
+            </div>
           </div>
 
           <div>
