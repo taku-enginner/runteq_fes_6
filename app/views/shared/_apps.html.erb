@@ -3,7 +3,10 @@
     <% @applyapps.each do |app| %>
       <div class="card bg-base-100 w-full max-w-sm shadow-sm shadow-md flex flex-col h-full transform transition hover:scale-105 hover:shadow-lg duration-300 rounded-xl overflow-hidden">
         <!-- 画像 -->
-        <div class="flex items-center justify-center bg-white">
+        <div class="relative flex items-center justify-center bg-white">
+          <%= image_tag "クソアプリバッジ.png", size: "50x50" , class: "absolute top-0 left-0 z-10" if app.kuso %>
+          <%= image_tag "new.png", size: "70x70", class: "absolute top-0 left-13 z-10" if Date.today < (app.created_at + 5.days) && app.kuso %>
+          <%= image_tag "new.png", size: "70x70", class: "absolute top-0 left-0 z-10" if Date.today < (app.created_at + 5.days) && !app.kuso %>
           <% if app.app_image.size > 0 %>
             <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 md:h-60 w-full object-cover" %>
           <% else %>
@@ -12,34 +15,24 @@
         </div>
 
         <!-- 本文 -->
-        <div class="card-body bg-green-200 flex flex-col p-2 h-[340px] justify-between">
+        <div class="card-body bg-green-200 flex flex-col p-2 h-[300px] justify-between">
           <div class="text-center font-bold">
-            <% if app.kuso %>
-              <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
-                <div class="flex flex-row items-center justify-center space-x-2">
-                  <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
-                  <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
-                  <h2 class="font-bebas text-2xl font-light hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
-                </div>
-                <div class="font-light text-sm overflow-hidden line-clamp-3 px-2 h-[180px]"><%= app.description %></div>
+            <div class="text-center font-bold p-1 flex flex-col items-center justify-center max-h-[230px]">
+              <div class="flex flex-row items-center justify-center space-x-2">
+                <h2 class="font-bebas text-2xl font-light hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
               </div>
-            <% else %>
-              <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
-                <div class="flex flex-row items-center justify-center space-x-2">
-                  <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
-                  <h2 class="font-bebas text-2xl font-light py-2 hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
-                </div>
-                <div class="font-light text-sm overflow-hidden line-clamp-3 px-2 h-[180px]"><%= app.description %></div>
-              </div>
-            <% end %>
+              <div class="font-light text-sm overflow-hidden line-clamp-3 px-2"><%= app.description %></div>
+            </div>
           </div>
 
-          <% enginner_array = app.enginnername.split("**********").join(",") %>
-          <div class="text-center p-2 text-sm">開発者：<%= enginner_array %></div>
+          <div>
+            <% enginner_array = app.enginnername.split("**********").join(",") %>
+            <div class="text-center p-2 text-sm">開発者：<%= enginner_array %></div>
 
-          <div class="flex flex-row space-x-4 items-center justify-center">
-            <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-sm px-3 py-1 border rounded hover:bg-blue-100 hover:text-blue-600 transition" %>
-            <%= link_to "サービス", "#{app.appurl}", class: "bg-white border-2 text-sm px-3 py-1 border rounded hover:bg-blue-100 hover:text-blue-600 transition" %>
+            <div class="flex flex-row space-x-4 items-center justify-center">
+              <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-sm px-3 py-1 border rounded hover:bg-blue-100 hover:text-blue-600 transition" %>
+              <%= link_to "サービス", "#{app.appurl}", class: "bg-white border-2 text-sm px-3 py-1 border rounded hover:bg-blue-100 hover:text-blue-600 transition" %>
+            </div>
           </div>
         </div>
       </div>
