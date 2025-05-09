@@ -18,7 +18,6 @@
             <% if app.kuso %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
                 <div class="flex flex-row items-center justify-center space-x-2">
-                  <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
                   <%= image_tag "クソアプリバッジ.png", size: "50x50" %>
                   <h2 class="font-bebas text-2xl font-light hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
                 </div>
@@ -27,7 +26,6 @@
             <% else %>
               <div class="text-center font-bold p-1 flex flex-col items-center justify-center">
                 <div class="flex flex-row items-center justify-center space-x-2">
-                  <%= image_tag "new.png", size: "70x70" if Date.today < (app.created_at + 5.days) %>
                   <h2 class="font-bebas text-2xl font-light py-2 hover:text-blue-600 transition duration-200"><%= app.apptitle %></h2>
                 </div>
                 <div class="font-light text-sm overflow-hidden line-clamp-3 px-2 h-[180px]"><%= app.description %></div>
