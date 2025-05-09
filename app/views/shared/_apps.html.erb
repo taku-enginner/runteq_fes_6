@@ -5,7 +5,7 @@
         <!-- 画像 -->
         <div class="relative flex items-center justify-center bg-white">
           <%= image_tag "new.png", size: "70x70", class: "absolute top-0 left-0 z-10" if Date.today < (app.created_at + 5.days) %>
-          <% if !!app.app_image %>
+          <% if app.app_image.size > 0 %>
             <%= image_tag image_url(app.app_image), alt: "Google Drive Image", class: "h-48 md:h-60 w-full object-cover" %>
           <% else %>
             <%= image_tag "top_image.jpg", class: "h-48 md:h-60 w-full object-cover" %>
@@ -35,7 +35,8 @@
             <% end %>
           </div>
 
-          <div class="text-center p-2 text-sm">開発者：<%= app.enginnername %></div>
+          <% enginner_array = app.enginnername.split("**********").join(",") %>
+          <div class="text-center p-2 text-sm">開発者：<%= enginner_array %></div>
 
           <div class="flex flex-row space-x-4 items-center justify-center">
             <%= link_to "詳細", applyapp_path(app.id), class: "bg-white border-2 text-sm px-3 py-1 border rounded hover:bg-blue-100 hover:text-blue-600 transition" %>
