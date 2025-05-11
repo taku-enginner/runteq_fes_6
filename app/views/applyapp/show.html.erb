@@ -48,6 +48,8 @@
     <div class="flex flex-col items-center space-y-3">
       <% enginner_array = @applyapp.enginnername.split("**********") %>
       <% enginner_array = raidoku_team if enginner_array[0] == "来読-ReadMap-制作委員会" %>
+      <% enginner_array = neo_metro_labs if enginner_array[0] == "Neo Metro Labs" %>
+
       <% x_array = @applyapp.xurl.split("**********") %>
       <% spf_array = @applyapp.spfurl.split("**********") %>
 
